@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Gateway-Deployment
+  labels:
+    app: Gateway
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: Gateway
+  template:
+    metadata:
+      name: Gateway
+      labels:
+        app: Gateway
+    spec:
+      containers:
+        - name: Gateway
+          image: LastingMicro-gateway_service
+          imagePullPolicy: Never
+      restartPolicy: Always
+      
